@@ -3,85 +3,36 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: CIRCOR International
 providerId: circor-international
-created: '2026-05-04'
-modified: '2026-05-04'
+created: '2026-04-19'
+modified: '2026-05-05'
+reconciled: false
 tags:
+  - Energy
   - Flow Control
   - Industrial
-  - Energy
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the CIRCOR International API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: CIRCOR International does not operate a public developer API and therefore does not
+  publish a rate-limit policy. The api.circor.com / developer.circor.com base URLs referenced in
+  apis.yml are placeholders. Any future B2B or partner integration would be governed by an
+  industrial sales / OEM agreement rather than a public per-second cap.
+notes: CIRCOR has no public developer portal or API. There are no public rate limits to record.
+sources:
+  - https://www.circor.com/
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  unauthorized: 401
+  forbidden: 403
+  notFound: 404
+  serverError: 500
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - CIRCOR International API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - CIRCOR International API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - CIRCOR International API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - CIRCOR International API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - CIRCOR International API
+  - name: Public CIRCOR API
+    scope: n/a
+    metric: varies
+    limit: 'no public API documented'
+    notes: Endpoints referenced in apis.yml are placeholders pending future publication.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: No Public API
+    description: CIRCOR does not currently expose a public developer API. Partners requiring data
+      integration should contact CIRCOR sales for an OEM / B2B agreement.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

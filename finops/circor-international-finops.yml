@@ -1,130 +1,88 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: CIRCOR International
+providerId: circor-international
+created: '2026-04-19'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - Energy
+  - Flow Control
+  - Industrial
+  - FinOps
+  - FOCUS
+description: 'FOCUS-aligned FinOps for CIRCOR International: industrial-goods commercial shape —
+  product purchase orders, aftermarket parts, and service contracts. CIRCOR does not bill for API
+  access and does not expose a metered usage surface. This artifact records the commercial cost
+  shape that a buyer would see, not an API cost surface.'
+notes: CIRCOR does not currently expose any API billing surface. The FinOps shape below describes
+  the industrial-product commercial relationship.
+sources:
+  - https://www.circor.com/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: CIRCOR International
-providerId: circor-international
-publisherName: CIRCOR International
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Flow Control
-  - Industrial
-  - Energy
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the CIRCOR International API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: CIRCOR International, Inc.
+serviceCategory: Industrial / Flow Control
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Industrial Goods (Quote-to-Cash)
+  billingFrequency: Per Purchase Order
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Refund
 focusColumns:
   ServiceName: CIRCOR International
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Industrial / Flow Control
   ProviderName: CIRCOR International
-  PublisherName: CIRCOR International
-  InvoiceIssuerName: CIRCOR International
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: CIRCOR International, Inc.
+  InvoiceIssuerName: CIRCOR International, Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
+  PricingCategory: Industrial Goods
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: product_purchase
+    description: Industrial pumps, valves, and aerospace / defense flow-control products purchased
+    unit: unit
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
+      - business_group
+      - product_family
+      - region
+  - name: aftermarket_parts
+    description: Spare parts and consumables purchased post-installation
+    unit: unit
+    aggregation: sum
+    dimensions:
+      - product_family
+      - asset_id
+  - name: service_contract
+    description: Field service, maintenance, or extended warranty contracts
+    unit: month
+    aggregation: sum
+    dimensions:
       - tier
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: CIRCOR International API
-    baseURL: https://api.circor.com
-    tags:
-      - Flow Control
-      - Industrial
-      - Energy
-    serviceName: CIRCOR International API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+principles:
+  - name: Visibility
+    description: Track CIRCOR spend through purchase orders, asset / equipment registers, and
+      service-contract invoices.
+  - name: Allocation
+    description: Allocate flow-control assets to the operating site, plant, or platform that owns
+      them so industrial maintenance can be charged back accurately.
+  - name: Optimization
+    description: Standardize on common product families to simplify spares inventory; align service
+      contracts with planned outage cycles; retire end-of-life assets before excessive aftermarket
+      cost accrues.
+  - name: Accountability
+    description: Operations / engineering owns the asset; procurement owns vendor terms; finance
+      reconciles purchase orders, parts spend, and service invoices.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -3,144 +3,55 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
 provider: CIRCOR International
 providerId: circor-international
-created: '2026-05-04'
-modified: '2026-05-04'
+created: '2026-04-19'
+modified: '2026-05-05'
+reconciled: false
 tags:
+  - Energy
   - Flow Control
   - Industrial
-  - Energy
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: CIRCOR International is a Fortune 1000 industrial manufacturer of flow-control products
+  (pumps, valves) for aerospace, defense, and industrial markets. CIRCOR does not publish a public
+  developer API or developer portal — there is no listed API pricing. Commercial relationships flow
+  through CIRCOR's industrial sales channels, distributors, and OEM agreements, where pricing is
+  negotiated per product (configuration, materials, certification class, lead time) rather than
+  per API call.
+notes: CIRCOR does not operate a public developer API. The api.circor.com / developer.circor.com
+  endpoints referenced in apis.yml are placeholders. No public pricing exists.
+sources:
+  - https://www.circor.com/
 plans:
-  - id: circor-international-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the CIRCOR International API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.circor.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.circor.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: CIRCOR International API
-  - id: circor-international-pro
-    name: Professional
-    type: paid
-    description: Production tier for CIRCOR International. Provides higher quotas, priority support, and
-      access to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.circor.com
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.circor.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.circor.com
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: CIRCOR International API
-  - id: circor-international-enterprise
-    name: Enterprise
+  - id: circor-channel-quoted
+    name: Channel-Quoted Industrial Sale
     type: enterprise
-    description: Custom-negotiated tier for CIRCOR International. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+    description: All CIRCOR commercial offerings are quoted through industrial sales, distributors,
+      or OEM agreements. There is no publicly priced API.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Product purchase
+        name: product_purchase
+        type: flat
+        metric: unit
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.circor.com
+        timeFrame: usage
+        geo: global
         unit: 1
-        price: custom
+        price: contact CIRCOR sales / distributor
         userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://api.circor.com
+      - label: Aftermarket and service
+        name: aftermarket
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: year
+        geo: global
         unit: 1
-        price: custom
+        price: per agreed service contract
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: CIRCOR International API
+      - name: Aerospace and Defense flow-control products
+      - name: Industrial pumps
+      - name: Industrial valves
+      - name: Aftermarket parts and service
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
