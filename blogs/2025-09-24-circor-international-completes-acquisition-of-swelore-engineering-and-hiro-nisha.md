@@ -1,0 +1,9 @@
+---
+title: CIRCOR International Completes Acquisition of Swelore Engineering and Hiro
+  Nisha Systems
+url: https://www.circor.com/news/press-releases/circor-international-completes-acquisition-swelore
+date: '2025-09-24'
+author: jennifer
+feed_url: https://circor.com/rss.xml
+---
+CIRCOR International Completes Acquisition of Swelore Engineering and Hiro Nisha Systems jennifer 2025-09-24 - 15:14 Press Releases 30.09.2025 Burlington, MA – September 29, 2025 – CIRCOR International, Inc., a KKR portfolio company and global manufacturer of flow control products for industrial and aerospace markets, today announced that it has completed the previously announced acquisition of Swelore Engineering Pvt. Ltd. and Hiro Nisha Systems Pvt. Ltd., two leading Indian manufacturers of metering and reciprocating pumps. The acquisition, originally announced on August 22, 2025, strengthens CIRCOR’s presence in the high-growth Indian market and adds a complementary portfolio of flow control technologies to its Industrial segment. Swelore and Hiro Nisha will be integrated into Allweiler India, CIRCOR’s existing pumps business in the country. About CIRCOR International, Inc. Founded in 1999, CIRCOR International, Inc. designs, manufactures, and markets differentiated flow control products and sub-systems for Aerospace & Defense and Industrial customers. The Company has a diversified product portfolio of recognized, market-leading brands including Allweiler®, Houttuin™, Imo®, Hale Hamilton, Aerodyne Controls, CIRCOR Aerospace, RTK®, Schroedahl®, Tushaco®, Warren®, and Zenith®. CIRCOR serves over 14,000 customers in approximately 100 countries and is headquartered in Burlington, Massachusetts. For more information, visit www.circor.com . Media Contact: Jennifer Edwards Corporate Communications Jennifer.Edwards@circor.com https://www.businesswire.com/news/home/20250929544400/en/CIRCOR-International-Completes-Acquisition-of-Swelore-Engineering-and-Hiro-Nisha-Systems
