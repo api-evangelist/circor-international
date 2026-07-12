@@ -28,6 +28,8 @@ apis:
     description: >-
       The CIRCOR International API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: DomainSecurity
+    url: security/circor-international-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/circor-international-inc-
   - type: Website
