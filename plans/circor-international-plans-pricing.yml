@@ -4,8 +4,12 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CIRCOR International
 providerId: circor-international
 created: '2026-04-19'
-modified: '2026-05-05'
+modified: '2026-09-19'
 reconciled: false
+generated: '2026-09-19'
+method: searched
+source: https://www.circor.com/
+plan_count: 0
 tags:
   - Energy
   - Flow Control
@@ -16,7 +20,7 @@ description: CIRCOR International is a Fortune 1000 industrial manufacturer of f
   through CIRCOR's industrial sales channels, distributors, and OEM agreements, where pricing is
   negotiated per product (configuration, materials, certification class, lead time) rather than
   per API call.
-notes: CIRCOR does not operate a public developer API. The api.circor.com / developer.circor.com
+notes: plan_count is 0 because CIRCOR publishes no API plans or pricing anywhere on circor.com (re-checked 2026-09-19; the plans[] entry below describes the industrial quote-to-order commercial shape, not an API tier). CIRCOR does not operate a public developer API. The api.circor.com / developer.circor.com
   endpoints referenced in apis.yml are placeholders. No public pricing exists.
 sources:
   - https://www.circor.com/

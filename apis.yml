@@ -27,36 +27,83 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/circor-international.png
 tags:
-  - Flow Control
-  - Industrial
-  - Energy
-description: >-
-  CIRCOR International is a major US corporation and Fortune 1000 company. The CIRCOR International API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+- Flow Control
+- Industrial
+- Energy
+- Aerospace and Defense
+- Manufacturing
+- Pumps
+- Valves
+description: 'CIRCOR International is a flow-control manufacturer headquartered in Burlington, Massachusetts,
+  building mission-critical pumps, valves and flow-control products for the Industrial and Aerospace &
+  Defense markets through brands including IMO, Allweiler, Warren, RTK, Schroedahl, Hale Hamilton, Aerodyne
+  Controls, Leslie Controls, Circle Seal Controls and Zenith. The company was established in 1999, sells
+  directly and through sales partners to roughly 14,000 customers in about 100 countries with approximately
+  3,100 employees, and was taken private by KKR on 18 October 2023, after which its shares ceased trading
+  on the NYSE. CIRCOR publishes no developer portal, API reference or machine-readable contract of any
+  kind: its only software product on the public web is CIRCORSmart, a closed iOS/Android/desktop maintenance-tracking
+  app for IMO pump series whose admin console and backend are unauthenticated-inaccessible Azure applications
+  with no published interface.'
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-19'
 specificationVersion: '0.23'
-apis:
-  - aid: circor-international:circor-international-api
-    name: CIRCOR International API
-    tags:
-      - Flow Control
-      - Industrial
-      - Energy
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.circor.com
-    humanURL: https://developer.circor.com
-    properties:
-      - url: https://developer.circor.com/docs
-        type: Documentation
-    description: >-
-      The CIRCOR International API provides access to platform services and data for enterprise integration and automation.
+apis: []   # the 2026-04-19 stub's single entry (api.circor.com / developer.circor.com) was removed 2026-09-19: both hosts are NXDOMAIN and nothing about that API was ever observed
 common:
-  - type: DomainSecurity
-    url: security/circor-international-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/circor-international-inc-
-  - type: Website
-    url: https://www.circor.com
+- type: DomainSecurity
+  url: security/circor-international-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/circor-international-inc-
+- type: Website
+  url: https://www.circor.com
+- type: Newsroom
+  url: https://www.circor.com/newsroom
+- type: Leadership
+  url: https://www.circor.com/about/leadership
+- type: Support
+  url: https://www.circor.com/contact
+- type: PrivacyPolicy
+  url: https://www.circor.com/privacy
+- type: Careers
+  url: https://www.circor.com/careers
+- type: BlogRSS
+  url: https://www.circor.com/rss.xml
+- type: YouTube
+  url: https://www.youtube.com/user/circorinternational
+- type: RegulatoryPosture
+  url: regulatory/circor-international-regulatory-posture.yml
+- type: Plans
+  url: plans/circor-international-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/circor-international-rate-limits.yml
+- type: FinOps
+  url: finops/circor-international-finops.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-19'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: 'CIRCOR builds pumps and valves, not software: www.circor.com is a Drupal brochure site whose
+    whole navigation is products, brands, careers and newsroom, its only app (CIRCORSmart, for IMO pump
+    maintenance) is a closed mobile/desktop client with no published interface, and the api.circor.com
+    and developer.circor.com hosts this profile carried since 2026-04-19 are NXDOMAIN placeholders that
+    were never real.'
+  evidence:
+  - url: https://api.circor.com
+    status: 0
+  - url: https://developer.circor.com/docs
+    status: 0
+  - url: https://www.circor.com/
+    status: 200
+  - url: https://www.circor.com/.well-known/security.txt
+    status: 404
+  - url: https://www.circor.com/openapi.json
+    status: 404
+  - url: https://circorsmart-service.azurewebsites.net/v3/api-docs
+    status: 404
+  checked: '2026-09-19'

@@ -4,8 +4,12 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: CIRCOR International
 providerId: circor-international
 created: '2026-04-19'
-modified: '2026-05-05'
+modified: '2026-09-19'
 reconciled: false
+generated: '2026-09-19'
+method: searched
+source: https://www.circor.com/
+limit_count: 0
 tags:
   - Energy
   - Flow Control
@@ -15,7 +19,7 @@ description: CIRCOR International does not operate a public developer API and th
   publish a rate-limit policy. The api.circor.com / developer.circor.com base URLs referenced in
   apis.yml are placeholders. Any future B2B or partner integration would be governed by an
   industrial sales / OEM agreement rather than a public per-second cap.
-notes: CIRCOR has no public developer portal or API. There are no public rate limits to record.
+notes: limit_count is 0 because no rate-limit policy or headers are published anywhere on circor.com (re-checked 2026-09-19; api.circor.com and developer.circor.com are NXDOMAIN). CIRCOR has no public developer portal or API. There are no public rate limits to record.
 sources:
   - https://www.circor.com/
 responseCodes:

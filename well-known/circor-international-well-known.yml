@@ -1,0 +1,122 @@
+generated: '2026-09-19'
+method: probed
+source: live GET of /.well-known/* on every host the record knows (registrable domain + www, both
+  apis.yml placeholder hosts, and the CIRCORSmart app + backend hosts found on circor.com/circorsmart)
+note: >-
+  No /.well-known/ document is served on any CIRCOR host, so NO WellKnown/SecurityTxt pointer is
+  emitted — this file records an absence. www.circor.com sits behind Fastly/Acquia and answers 406
+  with an empty body to repeated misses from one client; every 406 below was re-fetched from a second
+  egress and returned an ordinary 404. api.circor.com and developer.circor.com are NXDOMAIN (the
+  apis.yml placeholders from the 2026-04-19 stub; removed this pass). circorsmart.azurewebsites.net is
+  an Angular SPA catch-all that answers 200 text/html for every /.well-known/* path — an app shell,
+  not a document, treated as a miss. Its backend circorsmart-service.azurewebsites.net (Spring Boot)
+  answers a real 404 on every path.
+hosts:
+- host: www.circor.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+    note: 406 (empty body) from the first egress, 404 confirmed from a second
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+    note: 406 (empty body) from the first egress, 404 confirmed from a second
+  - path: /.well-known/oauth-protected-resource
+    status: 406
+    file: null
+    note: Fastly edge refusal with an empty body; same class as the paths confirmed 404
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+    note: 406 (empty body) from the first egress, 404 confirmed from a second
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+    note: 406 (empty body) from the first egress, 404 confirmed from a second
+  - path: /.well-known/agent.json
+    status: 406
+    file: null
+    note: Fastly edge refusal with an empty body; same class as the paths confirmed 404
+  - path: /.well-known/mcp.json
+    status: 406
+    file: null
+    note: Fastly edge refusal with an empty body; same class as the paths confirmed 404
+- host: circor.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 406
+    file: null
+    note: apex host answers 406 with an empty body to every /.well-known/* path from this client; the apex 301s page requests to www.circor.com
+  - path: /.well-known/openid-configuration
+    status: 406
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 406
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 406
+    file: null
+  - path: /.well-known/api-catalog
+    status: 406
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 406
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 406
+    file: null
+  - path: /.well-known/agent.json
+    status: 406
+    file: null
+- host: api.circor.com
+  note: NXDOMAIN — the host does not exist in DNS
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+- host: developer.circor.com
+  note: NXDOMAIN — the host does not exist in DNS
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+- host: circorsmart.azurewebsites.net
+  note: CIRCORSmart admin web app (Angular SPA); every path returns the 1,813-byte index.html shell — 200 is NOT a document here
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: text/html SPA shell, not a security.txt — treated as a miss
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: text/html SPA shell, not JSON — treated as a miss
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: text/html SPA shell, not JSON — treated as a miss
+- host: circorsmart-service.azurewebsites.net
+  note: CIRCORSmart backend (Spring Boot, application/xml error envelope); named in the SPA bundle as its API base
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
