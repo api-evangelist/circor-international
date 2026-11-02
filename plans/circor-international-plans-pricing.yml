@@ -1,0 +1,80 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: CIRCOR International
+providerId: circor-international
+created: '2026-04-19'
+modified: '2026-09-19'
+reconciled: false
+generated: '2026-09-19'
+method: searched
+source: https://www.circor.com/
+plan_count: 0
+tags:
+  - Energy
+  - Flow Control
+  - Industrial
+description: CIRCOR International is a Fortune 1000 industrial manufacturer of flow-control products
+  (pumps, valves) for aerospace, defense, and industrial markets. CIRCOR does not publish a public
+  developer API or developer portal — there is no listed API pricing. Commercial relationships flow
+  through CIRCOR's industrial sales channels, distributors, and OEM agreements, where pricing is
+  negotiated per product (configuration, materials, certification class, lead time) rather than
+  per API call.
+notes: plan_count is 0 because CIRCOR publishes no API plans or pricing anywhere on circor.com (re-checked 2026-09-19; the plans[] entry below describes the industrial quote-to-order commercial shape, not an API tier). CIRCOR does not operate a public developer API. The api.circor.com / developer.circor.com
+  endpoints referenced in apis.yml are placeholders. No public pricing exists.
+sources:
+  - https://www.circor.com/
+plans:
+  - id: circor-channel-quoted
+    name: Channel-Quoted Industrial Sale
+    type: enterprise
+    description: All CIRCOR commercial offerings are quoted through industrial sales, distributors,
+      or OEM agreements. There is no publicly priced API.
+    entries:
+      - label: Product purchase
+        name: product_purchase
+        type: flat
+        metric: unit
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: contact CIRCOR sales / distributor
+        userMultiplied: false
+      - label: Aftermarket and service
+        name: aftermarket
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: per agreed service contract
+        userMultiplied: false
+    elements:
+      - name: Aerospace and Defense flow-control products
+      - name: Industrial pumps
+      - name: Industrial valves
+      - name: Aftermarket parts and service
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - credit
+  - period
+  plans:
+  - name: Channel-Quoted Industrial Sale
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - credit
+    - period
+    periods:
+    - per-use
+    - year
